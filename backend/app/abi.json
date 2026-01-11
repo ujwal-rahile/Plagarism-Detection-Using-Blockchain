@@ -1,34 +1,5 @@
 [
     {
-        "inputs": [
-            {
-                "internalType": "bytes32[]",
-                "name": "contentHashes",
-                "type": "bytes32[]"
-            }
-        ],
-        "name": "checkAndStoreHashes",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "isPlagiarized",
-                "type": "bool"
-            },
-            {
-                "internalType": "uint256[]",
-                "name": "plagiarizedIndices",
-                "type": "uint256[]"
-            },
-            {
-                "internalType": "uint256",
-                "name": "similarityPercentage",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
         "anonymous": false,
         "inputs": [
             {
@@ -79,15 +50,44 @@
         "type": "event"
     },
     {
-        "inputs": [
+        "inputs": [],
+        "name": "PLAGIARISM_THRESHOLD",
+        "outputs": [
             {
                 "internalType": "uint256",
-                "name": "newMinimum",
+                "name": "",
                 "type": "uint256"
             }
         ],
-        "name": "setMinimumHashesRequired",
-        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32[]",
+                "name": "contentHashes",
+                "type": "bytes32[]"
+            }
+        ],
+        "name": "checkAndStoreHashes",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "isPlagiarized",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "plagiarizedIndices",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256",
+                "name": "similarityPercentage",
+                "type": "uint256"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -118,16 +118,16 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "PLAGIARISM_THRESHOLD",
-        "outputs": [
+        "inputs": [
             {
                 "internalType": "uint256",
-                "name": "",
+                "name": "newMinimum",
                 "type": "uint256"
             }
         ],
-        "stateMutability": "view",
+        "name": "setMinimumHashesRequired",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     }
 ]
