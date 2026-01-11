@@ -2,6 +2,7 @@
 from flask import Blueprint, request, jsonify
 from eth_account import Account
 from ..services.blockchain_service import BlockchainService
+import os
 
 api_bp = Blueprint('api', __name__)
 blockchain_service = BlockchainService()
@@ -60,7 +61,6 @@ def upload_file():
         result = blockchain_service.process_document(temp_path, sender)
         
         # Cleanup
-        import os
         if os.path.exists(temp_path):
             os.remove(temp_path)
             
@@ -71,7 +71,6 @@ def upload_file():
         
     except Exception as e:
         # Cleanup on error
-        import os
         if os.path.exists(temp_path):
             os.remove(temp_path)
         return jsonify({"error": str(e)}), 500

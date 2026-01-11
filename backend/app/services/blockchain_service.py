@@ -11,7 +11,7 @@ class BlockchainService:
         self.contract_address = Config.CONTRACT_ADDRESS
         
         # Load ABI from file
-        abi_path = os.path.join(os.path.dirname(__file__), '..', 'abi.json')
+        abi_path = os.path.join(os.path.dirname(__file__), '..', '..', 'contract', 'abi.json')
         with open(abi_path, 'r') as f:
             self.abi = json.load(f)
 

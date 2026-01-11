@@ -18,7 +18,7 @@ contract PlagiarismChecker {
      * @dev Checks hashes against stored database and handles storage if unique
      * @param contentHashes Array of content hashes to check
      * @return isPlagiarized True if similarity >= 20%
-     * @return plagiarizedIndices Array of 1-based indices of plagiarized hashes
+     * @return plagiarizedIndices Array of 0-based indices of plagiarized hashes
      * @return similarityPercentage Match percentage (0-100)
      */
     function checkAndStoreHashes(bytes32[] calldata contentHashes)
@@ -30,7 +30,7 @@ contract PlagiarismChecker {
         )
     {
         require(contentHashes.length >= minimumHashesRequired, "Insufficient hashes");
-        require(contentHashes.length <= 1000, "Too many hashes"); // Prevent gas issues
+        require(contentHashes.length <= 5000, "Too many hashes"); // Prevent gas issues
 
         uint256 matchCount;
         plagiarizedIndices = new uint256[](contentHashes.length);
